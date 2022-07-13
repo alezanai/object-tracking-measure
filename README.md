@@ -93,7 +93,7 @@ otm.idf1({
 ### Advanced usage
 
 By default, object-tracking-measure uses 
-* distance between boxes is (1 - Intersection Over Union) (using (mean-average-precision)[https://www.npmjs.com/package/mean-average-precision] library)
+* distance between boxes is (1 - Intersection Over Union) (using [mean-average-precision](https://www.npmjs.com/package/mean-average-precision) library)
 * threshold is 1 (i.e. IOU = 0  - no overlap)
 
 You can cutomize this, for example to track distance between {x,y} points like
@@ -137,6 +137,46 @@ otm.idf1({
 	distFn: ((a,b) => Math.sqrt(((a.x - b.x) * (a.x - b.x)) + ((a.y - b.y) * (a.y - b.y)))), // Euclidian distance
 	threshold: 2 // means that 2 meters far is too far
 });
+```
+## Inspect ID Metric
+```js
+const measure = otm.idDetails({
+	groundTruths,
+	predictions
+});
+
+console.log(otm.idInspect(Object.assign({}, measure, {
+	columns: process.stdout.columns - 20
+})))
+```
+will print
+```bash
+--
+GroundTruth[0]✓――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――✓
+Prediction[0] ✓――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――✓
+              |----------------------------|----------------------------|---------------------------
+              0                            1                            2                           
+
+--
+GroundTruth[1]✓―――――――――――――――――――――――――――✓?―――――――――――――――――――――――――――?✓――――――――――――――――――――――――――✓
+Prediction[1] ✓―――――――――――――――――――――――――――✓?―――――――――――――――――――――――――――?✓――――――――――――――――――――――――――✓
+              |----------------------------|----------------------------|---------------------------
+```
+## Inspect MOT Metric
+```js
+const measure = otm.motDetails({
+	groundTruths,
+	predictions
+});
+
+console.log(otm.motInspect(Object.assign({}, measure, {
+	columns: process.stdout.columns - 20
+})))
+```
+will print
+```bash
+0[0]                1-1-1-1-1-1-1-1-1-1-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-
+1[1]                0-0-0-0-0-0-0-0-0-0---------------------1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-
 ```
 ## References
 <a id="1">[1]</a> 
