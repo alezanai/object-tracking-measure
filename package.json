@@ -9,8 +9,6 @@
   },
   "scripts": {
     "test": "xo && ava",
-    "dev": "webpack --config=Scripts/config/webpack.dev.js --watch",
-    "build": "webpack --config=Scripts/config/webpack.prod.js"
   },
   "repository": {
     "type": "git",
