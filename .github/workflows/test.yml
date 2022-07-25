@@ -20,3 +20,5 @@ jobs:
       - run: npm test
       - run : npm install --save-dev nyc
       - run : npm run coverage
+        with :
+          coverage : 70
