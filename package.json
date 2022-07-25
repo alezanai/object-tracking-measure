@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "xo && ava",
-    "coverage" : "nyc --check-coverage --lines=90 npm run test"
+    "coverage" : "nyc --check-coverage --lines=100 npm run test"
   },
   "repository": {
     "type": "git",
