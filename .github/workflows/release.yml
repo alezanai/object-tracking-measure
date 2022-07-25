@@ -15,6 +15,4 @@ jobs:
         node-version: 12
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test -- --watch=false --browsers=ChromeHeadless
     - run: npx semantic-release
