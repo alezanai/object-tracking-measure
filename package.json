@@ -8,7 +8,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "coverage" : "nyc --check-coverage --lines=90 npm run test"
   },
   "repository": {
     "type": "git",
@@ -57,5 +58,8 @@
     "colors": "^1.4.0",
     "mean-average-precision": "^1.5.0",
     "munkres-js": "^1.2.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
