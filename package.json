@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "xo && ava",
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
